@@ -33,6 +33,6 @@ Luego donde se requiera llamar la funcion se realiza asi:
 diff = generate_diff('file1.json', 'file2.json')
 print(diff)
 
-Demostracion:
+Demostración:
 https://drive.google.com/file/d/1wbQXbhQONUZuyY8WgVOaxV6F-PtVQ7_y/view?usp=drive_link
 
