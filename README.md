@@ -18,6 +18,7 @@ Este proyecto esta pensado como una herramienta para facilitar la comoparación 
 Gendiff (Difference Calculator):
 Herramienta para comprar dos archivos de configuración y mostrar sus diferencias.
 
+
 Instalación:
 ```bash
 make install

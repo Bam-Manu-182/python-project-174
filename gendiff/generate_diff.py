@@ -8,9 +8,16 @@ def stringify(value):
     return str(value)
 
 
+def load_data(file_path):
+    if file_path.endswith('.json'):
+        return json.load(open(file_path))
+    elif file_path.endswith(('.yaml', '.yml')):
+        return yaml.safe_load(open(file_path))
+
+
 def generate_diff(file_path1, file_path2):
-    data1 = json.load(open(file_path1))
-    data2 = json.load(open(file_path2))
+    data1 = load_data(file_path1)
+    data2 = load_data(file_path2)
 
     keys = sorted(set(data1.keys()) | set(data2.keys()))
 
@@ -28,11 +35,4 @@ def generate_diff(file_path1, file_path2):
             result += f"+ {key}: {stringify(data2[key])}\n"
     result += "}"
     return result
-
-
-def load_data(file_path):
-    if file_path.endswith('.json'):
-        return json.load(open(file_path))
-    elif file_path.endswith('.yaml') or file_path.endswith('.yml'):
-        return yaml.safe_load(open(file_path))
 
