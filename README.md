@@ -2,11 +2,24 @@
 [![Actions Status](https://github.com/Bam-Manu-182/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Bam-Manu-182/python-project-174/actions)
 
 
+
+Project. Difference Calc
+
+Badge: GitHub CI
+[![Python CI](https://github.com/Bam-Manu-182/python-project-174/actions/workflows/python-test.yml/badge.svg)](https://github.com/Bam-Manu-182/python-project-174/actions/workflows/python-test.yml)
+
+Badge: Codeclimate - Maintainability
+[![Maintainability](https://qlty.sh/gh/Bam-Manu-182/projects/python-project-174/maintainability.svg)](https://qlty.sh/gh/Bam-Manu-182/projects/python-project-174)
+
+
+Descripción:
+Este proyecto esta pensado como una herramienta para facilitar la comoparación entre dos archivos, tipo: JSON y YAML, el cual devolvera sus diferencias.
+
 Gendiff (Difference Calculator):
 Herramienta para comprar dos archivos de configuración y mostrar sus diferencias.
 
 Instalación:
-'''bash
+```bash
 make install
 
 Uso en terminal:
