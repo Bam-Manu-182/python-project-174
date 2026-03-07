@@ -35,4 +35,3 @@ def generate_diff(file_path1, file_path2):
             result += f"  + {key}: {stringify(data2[key])}\n"
     result += "}"
     return result
-
