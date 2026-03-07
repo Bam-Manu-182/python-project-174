@@ -1,5 +1,5 @@
-import json
-import yaml
+import os
+from gendiff.parsers import parse
 
 
 def stringify(value):
@@ -8,16 +8,16 @@ def stringify(value):
     return str(value)
 
 
-def load_data(file_path):
-    if file_path.endswith('.json'):
-        return json.load(open(file_path))
-    elif file_path.endswith(('.yaml', '.yml')):
-        return yaml.safe_load(open(file_path))
+def get_data(file_path):
+    _, ext = os.path.splitext(file_path)
+    with open(file_path, 'r') as f:
+        content = f.read()
+    return parse(content, ext)
 
 
 def generate_diff(file_path1, file_path2):
-    data1 = load_data(file_path1)
-    data2 = load_data(file_path2)
+    data1 = get_data(file_path1)
+    data2 = get_data(file_path2)
 
     keys = sorted(set(data1.keys()) | set(data2.keys()))
 
@@ -25,14 +25,14 @@ def generate_diff(file_path1, file_path2):
     for key in keys:
         if key in data1 and key in data2:
             if data1[key] == data2[key]:
-                result += f"  {key}: {stringify(data1[key])}\n"
+                result += f"   {key}: {stringify(data1[key])}\n"
             else:
-                result += f"- {key}: {stringify(data1[key])}\n"
-                result += f"+ {key}: {stringify(data2[key])}\n"
+                result += f"  - {key}: {stringify(data1[key])}\n"
+                result += f"  + {key}: {stringify(data2[key])}\n"
         elif key in data1:
-            result += f"- {key}: {stringify(data1[key])}\n"
+            result += f"  - {key}: {stringify(data1[key])}\n"
         else:
-            result += f"+ {key}: {stringify(data2[key])}\n"
+            result += f"  + {key}: {stringify(data2[key])}\n"
     result += "}"
     return result
 

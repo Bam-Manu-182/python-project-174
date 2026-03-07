@@ -27,12 +27,32 @@ Uso en terminal:
 Escribir comando en la terminal: poetry run gendiff file1.json file2.json
 
 Uso como biblioteca:
-Escribir en archivo el comando de importe:
+Puedes importar la función `generate_diff` en tus propios scripts de Python:
 from gendiff import generate_diff
+
 Luego donde se requiera llamar la funcion se realiza asi:
 diff = generate_diff('file1.json', 'file2.json')
 print(diff)
 
-Demostración:
+Demostración inical:
 https://drive.google.com/file/d/1wbQXbhQONUZuyY8WgVOaxV6F-PtVQ7_y/view?usp=drive_link
+
+
+Para que el proyecto funcione se deben automatizar las pruebas manualmente, para esto usaremos pytest.
+
+Para que este comando funciones primero se debe instalar Pytest si aun no lo tienes instalado, para ello ejecuta este comando:
+poetry add --group dev pytest
+
+Luego y como paso A: Crear el archivo de los tests(pytest):
+Primero creamos una carpeta llamada tests en la raiz del proyecto, luego de esto en esa carpeta creamos un archivo llamado test_generate_diff.py.
+
+Siguiente y como paso B: Se crea el código de los test:
+Este código comparará la salida de la funcón con un resultado esperado que se guardara en un archivo de texto.
+
+Por último y como paso C: Ejecutar los tests:
+Una vez que se crea el archivo, se ejecutara este comando en la terminal "poetry run pytest" si todo esta bien establecido y sin errores se vera un mensaje en color verde, el cual dira que los 3 test pasaron. ("3 Passed")
+
+
+Demostración múltiformato:
+
 
