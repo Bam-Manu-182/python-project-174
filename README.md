@@ -50,7 +50,7 @@ Siguiente y como paso B: Se crea el código de los test:
 Este código comparará la salida de la funcón con un resultado esperado que se guardara en un archivo de texto.
 
 Por último y como paso C: Ejecutar los tests:
-Una vez que se crea el archivo, se ejecutara este comando en la terminal "poetry run pytest" si todo esta bien establecido y sin errores se vera un mensaje en color verde, el cual dira que los 3 test pasaron. ("3 Passed")
+Una vez que se crea el archivo, se ejecutara este comando en la terminal "poetry run pytest" si todo esta bien establecido y sin errores se vera un mensaje en color verde, el cual dira que los 3 test pasaron. ("3 Passed").
 
 
 Demostración múltiformato:
