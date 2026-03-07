@@ -1,5 +1,6 @@
 from gendiff.parsers import get_data
 
+
 def stringify(value, depth):
     if not isinstance(value, dict):
         if isinstance(value, bool):
