@@ -23,7 +23,8 @@ def render_plain(diff_tree, path=""):
         property_name = f"{path}{key}"
 
         if node_type == 'nested':
-            lines.append(render_plain(node.get('children'), f"{property_name}."))
+            lines.append(
+                render_plain(node.get('children'), f"{property_name}."))
 
         elif node_type == 'added':
             msg = f"Property '{property_name}' was added with value: "
