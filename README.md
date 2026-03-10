@@ -59,3 +59,6 @@ https://drive.google.com/file/d/1C1z4Yq54USs8genzcpzaqhlbut2uD0DD/view?usp=drive
 Esta herramienta también es compatible con una salida de texto sin formato para facilitar la lectura de diferencias complejas. Utilicé la bandera "--format plain" para ver los cambios de propiedad como oraciones descriptivas.
 
 Demostración:
+https://drive.google.com/file/d/183wpC8oiNkS8iPevMyLG08W4tAHpEanp/view?usp=drive_link
+
+
