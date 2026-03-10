@@ -13,14 +13,37 @@ Badge: Codeclimate - Maintainability
 
 
 Descripción:
-Este proyecto esta pensado como una herramienta para facilitar la comoparación entre dos archivos, tipo: JSON y YAML, el cual devolvera sus diferencias.
+Difference Calc (Gendiff)
+Difference Calc es una herramienta de línea de comandos (CLI) desarrollada en Python que permite comparar dos archivos de configuración y determinar sus diferencias. Es capaz de procesar formatos JSON y YAML, devolviendo el resultado en tres formatos distintos según la necesidad del usuario.
 
-Gendiff (Difference Calculator):
-Herramienta para comprar dos archivos de configuración y mostrar sus diferencias.
+
+Características y Especificaciones
+• Soporte de Formatos: Lectura de archivos `.json`, `.yml` y `.yaml`.
+
+• Comparación Profunda: Capacidad recursiva para comparar objetos anidados.
+
+• Arquitectura Modular: Separación clara entre el motor de comparación, los parsers y los formateadores.
+
+• Formatos de Salida:
+
+1. Stylish: Formato tipo árbol con sangría y signos `+` / `-` (estándar).
+
+2. Plain: Formato de texto plano con frases descriptivas sobre los cambios.
+
+3. JSON: Salida estructurada ideal para ser procesada por otras herramientas.
+
+
+Requisitos del Sistema
+• Sistemas Operativos: Windows (Powershell / CMD / WSL), macOS, Linux.
+
+• Versiones de Python: Compatible con Python 3.10 o superior (Probado en 3.12).
+
+• Gestor de Dependencias: Poetry.
 
 
 Instalación:
 ```bash
+
 make install
 
 Uso en terminal:
@@ -37,6 +60,9 @@ print(diff)
 Demostración inical:
 https://drive.google.com/file/d/1wbQXbhQONUZuyY8WgVOaxV6F-PtVQ7_y/view?usp=drive_link
 
+
+Para verificar el estilo puedes usar: make lint
+Y para verificar pruebas unitarias: make test
 
 Para que el proyecto funcione se deben automatizar las pruebas manualmente, para esto usaremos pytest.
 
@@ -56,6 +82,7 @@ Demostración múltiformato:
 https://drive.google.com/file/d/1C1z4Yq54USs8genzcpzaqhlbut2uD0DD/view?usp=drive_link
 
 
+PLAIN:
 Esta herramienta también es compatible con una salida de texto sin formato para facilitar la lectura de diferencias complejas. Utilicé la bandera "--format plain" para ver los cambios de propiedad como oraciones descriptivas.
 ejm: poetry run --format plain tests/fixtures/file1.json tests/fixtures/file2.json
 
@@ -69,3 +96,5 @@ Para su uso se puede escribir el siguiente comando en la termianl:
 poetry run gendiff --format json tests/fixtures/file1.json tests/fixtures/file2.json
 
 Demostarcion JSON:
+https://drive.google.com/file/d/1Ol2_TKKeqG99dC4aRETQ10fJ_ruC3_j7/view?usp=drive_link
+
