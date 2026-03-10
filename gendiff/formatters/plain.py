@@ -27,16 +27,17 @@ def render_plain(diff_tree, path=""):
                 render_plain(node.get('children'), f"{property_name}."))
 
         elif node_type == 'added':
-            msg = f"Property '{property_name}' was added with value: "
-            lines.append(f"{msg}{to_str(node.get('value'))}")
+            val = to_str(node.get('value'))
+            lines.append(
+                (f"Property'{property_name}' was added with value: {val}"))
 
         elif node_type == 'removed':
             lines.append(f"Property '{property_name}' was removed")
 
         elif node_type == 'changed':
-            msg = f"Property '{property_name}' was updated. From "
-            val1 = to_str(node.get('old_value'))
-            val2 = to_str(node.get('new_value'))
-            lines.append(f"{msg}{val1} to {val2}")
+            v1 = to_str(node.get('old_value'))
+            v2 = to_str(node.get('new_value'))
+            msg = f"Property '{property_name}' was updated. From {v1} to {v2}"
+            lines.append(msg)
 
     return "\n".join(lines)
