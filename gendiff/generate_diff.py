@@ -16,12 +16,18 @@ def build_diff(data1, data2):
             diff.append({'key': key, 'type': 'removed', 'value': val1})
 
         elif isinstance(val1, dict) and isinstance(val2, dict):
-            diff.append({'key': key, 'type': 'nested', 'children': build_diff(val1, val2)})
+            diff.append({
+                'key': key,
+                'type': 'nested',
+                'children': build_diff(val1, val2)})
 
         elif val1 == val2:
             diff.append({'key': key, 'type': 'unchanged', 'value': val1})
         else:
-            diff.append({'key': key, 'type': 'changed', 'old_value': val1, 'new_value': val2})
+            diff.append({
+                'key': key,
+                'type': 'changed',
+                'old_value': val1, 'new_value': val2})
 
     return diff
 
