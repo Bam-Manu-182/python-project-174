@@ -18,28 +18,24 @@ def render_plain(diff_tree, path=""):
     lines = []
 
     for node in diff_tree:
-        property_name = (
-            f"{path}{node['key']}" if path else node['key'])
-        node_type = node['type']
+        key = node.get('key')
+        node_type = node.get('type')
+        property_name = f"{path}{key}"
 
         if node_type == 'nested':
-            lines.append(
-                render_plain(node['children'], property_name))
+            lines.append(render_plain(node.get('children'), f"{property_name}."))
 
         elif node_type == 'added':
-            lines.append(
-                (f"Property '{property_name}' was added "
-                 f"with value: {to_str(node['value'])}"))
+            msg = f"Property '{property_name}' was added with value: "
+            lines.append(f"{msg}{to_str(node.get('value'))}")
 
         elif node_type == 'removed':
-            lines.append(
-                (f"Property '{property_name}' was removed"))
+            lines.append(f"Property '{property_name}' was removed")
 
         elif node_type == 'changed':
-            old_val = to_str(node['old_value'])
-            new_val = to_str(node['new_value'])
-            lines.append(
-                (f"Property '{property_name}' was updated. "
-                 f"From {old_val} to {new_val}"))
+            msg = f"Property '{property_name}' was updated. From "
+            val1 = to_str(node.get('old_value'))
+            val2 = to_str(node.get('new_value'))
+            lines.append(f"{msg}{val1} to {val2}")
 
     return "\n".join(lines)
