@@ -52,7 +52,10 @@ Este código comparará la salida de la funcón con un resultado esperado que se
 Por último y como paso C: Ejecutar los tests:
 Una vez que se crea el archivo, se ejecutara este comando en la terminal "poetry run pytest" si todo esta bien establecido y sin errores se vera un mensaje en color verde, el cual dira que los 3 test pasaron. ("3 Passed").
 
-
 Demostración múltiformato:
 https://drive.google.com/file/d/1C1z4Yq54USs8genzcpzaqhlbut2uD0DD/view?usp=drive_link
 
+
+Esta herramienta también es compatible con una salida de texto sin formato para facilitar la lectura de diferencias complejas. Utilicé la bandera "--format plain" para ver los cambios de propiedad como oraciones descriptivas.
+
+Demostración:
