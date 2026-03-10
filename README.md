@@ -91,7 +91,7 @@ https://drive.google.com/file/d/183wpC8oiNkS8iPevMyLG08W4tAHpEanp/view?usp=drive
 
 
 Formato JSON
-Para casos en los que se necesite procesar los datos de las direnecias con otras aplicaciones o scripts, el proyecto permmite exportar el resultado directamente en formato **JSON**. Este formato devuelve una representación técnica y estructurada del árbol de diferencias.
+Para casos en los que se necesite procesar los datos de las direnecias con otras aplicaciones o scripts, el proyecto permite exportar el resultado directamente en formato **JSON**. Este formato devuelve una representación técnica y estructurada del árbol de diferencias.
 Para su uso se puede escribir el siguiente comando en la termianl:
 poetry run gendiff --format json tests/fixtures/file1.json tests/fixtures/file2.json
 
