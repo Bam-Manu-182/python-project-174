@@ -24,7 +24,7 @@ Instalación:
 make install
 
 Uso en terminal:
-Escribir comando en la terminal: poetry run gendiff file1.json file2.json
+Escribir comando en la terminal: poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 
 Uso como biblioteca:
 Puedes importar la función `generate_diff` en tus propios scripts de Python:
@@ -57,8 +57,15 @@ https://drive.google.com/file/d/1C1z4Yq54USs8genzcpzaqhlbut2uD0DD/view?usp=drive
 
 
 Esta herramienta también es compatible con una salida de texto sin formato para facilitar la lectura de diferencias complejas. Utilicé la bandera "--format plain" para ver los cambios de propiedad como oraciones descriptivas.
+ejm: poetry run --format plain tests/fixtures/file1.json tests/fixtures/file2.json
 
 Demostración:
 https://drive.google.com/file/d/183wpC8oiNkS8iPevMyLG08W4tAHpEanp/view?usp=drive_link
 
 
+Formato JSON
+Para casos en los que se necesite procesar los datos de las direnecias con otras aplicaciones o scripts, el proyecto permmite exportar el resultado directamente en formato **JSON**. Este formato devuelve una representación técnica y estructurada del árbol de diferencias.
+Para su uso se puede escribir el siguiente comando en la termianl:
+poetry run gendiff --format json tests/fixtures/file1.json tests/fixtures/file2.json
+
+Demostarcion JSON:
