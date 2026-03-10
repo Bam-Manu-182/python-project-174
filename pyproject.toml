@@ -1,21 +1,18 @@
-[project]
+[tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
 description = "Compara dos archivos de configuracion y muestra las diferencias"
-authors = [
-    {name = "Manuel Parada"}
-]
-license = {text = "MIT"}
+authors = ["Manuel Parada"]
 readme = "README.md"
-requires-python = "^3.10"
-dependencies = [
-    "pyyaml (>=6.0.3,<7.0.0)"
-]
-
-
-[tool.poetry]
 packages = [{include = "gendiff"}]
 
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = ">=6.0.3,<7.0.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = ">=7.3.0,<8.0.0"
+pytest = ">=9.0.2,<10.0.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -23,9 +20,3 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
-
-[dependency-groups]
-dev = [
-    "flake8 (>=7.3.0,<8.0.0)",
-    "pytest (>=9.0.2,<10.0.0)"
-]

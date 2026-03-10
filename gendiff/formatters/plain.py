@@ -18,11 +18,13 @@ def render_plain(diff_tree, path=""):
     lines = []
 
     for node in diff_tree:
-        property_name = f"{path}{node['key']}" if path else node['key']
+        property_name = (
+            f"{path}{node['key']}" if path else node['key'])
         node_type = node['type']
 
         if node_type == 'nested':
-            lines.append(render_plain(node['children'], property_name))
+            lines.append(
+                render_plain(node['children'], property_name))
 
         elif node_type == 'added':
             lines.append(
@@ -30,7 +32,8 @@ def render_plain(diff_tree, path=""):
                  f"with value: {to_str(node['value'])}"))
 
         elif node_type == 'removed':
-            lines.append(f"Property '{property_name}' was removed")
+            lines.append(
+                (f"Property '{property_name}' was removed"))
 
         elif node_type == 'changed':
             old_val = to_str(node['old_value'])
