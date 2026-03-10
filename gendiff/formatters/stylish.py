@@ -8,8 +8,8 @@ def stringify(value, depth):
 
         return str(value)
 
-    current_indent = "    " * (depth + 1)
-    closing_indent = "    " * depth
+    current_indent = "    " * ((depth + 1) * 4)
+    closing_indent = "    " * (depth * 4)
     lines = []
 
     for key, val in value.items():
@@ -22,7 +22,7 @@ def stringify(value, depth):
 
 def render_stylish(diff_tree, depth=1):
     lines = []
-    indent = "    " * depth
+    indent = "    " * (depth * 4)
     prefix_indent = indent[:-2]
 
     for node in diff_tree:
@@ -43,7 +43,7 @@ def render_stylish(diff_tree, depth=1):
 
         elif node_type == 'unchanged':
             val = stringify(node['value'], depth)
-            lines.append(f"{prefix_indent}  {key}: {val}")
+            lines.append(f"{indent}  {key}: {val}")
 
         elif node_type == 'changed':
             old_val = stringify(node['old_value'], depth)
@@ -52,5 +52,5 @@ def render_stylish(diff_tree, depth=1):
             lines.append(f"{prefix_indent}+ {key}: {new_val}")
 
     result = "\n".join(lines)
-    closing_indent = "    " * (depth - 1)
+    closing_indent = "    " * ((depth - 1) * 4)
     return f"{{\n{result}\n{closing_indent}}}"
