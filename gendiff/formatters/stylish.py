@@ -48,8 +48,8 @@ def render_stylish(diff_tree, depth=1):
         elif node_type == 'changed':
             old_val = stringify(node['old_value'], depth)
             new_val = stringify(node['new_value'], depth)
-            lines.append(f"{prefix_indent}- {key}: {old_val}")
-            lines.append(f"{prefix_indent}+ {key}: {new_val}")
+            lines.append(f"{prefix_indent}-{key}: {old_val}")
+            lines.append(f"{prefix_indent}+{key}: {new_val}")
 
     result = "\n".join(lines)
     closing_indent = " " * ((depth - 1) * 4)
