@@ -21,14 +21,6 @@ def build_diff(data1, data2):
                 'type': 'nested',
                 'children': build_diff(val1, val2)})
 
-        elif data1[key] != data2[key]:
-            diff.append({
-                'key': key,
-                'type': 'changed',
-                'old_value': data1[key],
-                'new_value': data2[key]
-            })
-
         elif val1 == val2:
             diff.append({'key': key, 'type': 'unchanged', 'value': val1})
 
