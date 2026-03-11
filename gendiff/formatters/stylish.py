@@ -15,9 +15,9 @@ def stringify(value, depth):
     for key, val in value.items():
         lines.append(f"{child_indent}{key}: {stringify(val, depth + 1)}")
 
-        result = "\n".join(lines)
+    result = "\n".join(lines)
 
-        return f"{{\n{result}\n{indent}}}"
+    return f"{{\n{result}\n{indent}}}"
 
 
 def render_stylish(diff_tree, depth=1):
