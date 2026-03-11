@@ -8,30 +8,30 @@ def stringify(value, depth):
 
         return str(value)
 
-    current_indent = "    " * ((depth + 1) * 4)
-    closing_indent = "    " * (depth * 4)
+    indent = " " * (depth * 4)
+    child_indent = " " * ((depth + 1) * 4)
     lines = []
 
     for key, val in value.items():
-        lines.append(f"{current_indent}{key}: {stringify(val, depth + 1)}")
+        lines.append(f"{child_indent}{key}: {stringify(val, depth + 1)}")
 
         result = "\n".join(lines)
 
-        return f"{{\n{result}\n{closing_indent}}}"
+        return f"{{\n{result}\n{indent}}}"
 
 
 def render_stylish(diff_tree, depth=1):
-    lines = []
-    indent = "    " * (depth * 4)
+    indent = " " * (depth * 4)
     prefix_indent = indent[:-2]
+    lines = []
 
     for node in diff_tree:
         key = node['key']
         node_type = node['type']
 
         if node_type == 'nested':
-            children = render_stylish(node['children'], depth + 1)
-            lines.append(f"{indent}    {key}: {children}")
+            val = render_stylish(node['children'], depth + 1)
+            lines.append(f"{indent}    {key}: {val}")
 
         elif node_type == 'added':
             val = stringify(node['value'], depth)
@@ -43,7 +43,7 @@ def render_stylish(diff_tree, depth=1):
 
         elif node_type == 'unchanged':
             val = stringify(node['value'], depth)
-            lines.append(f"{indent}  {key}: {val}")
+            lines.append(f"{indent}{key}: {val}")
 
         elif node_type == 'changed':
             old_val = stringify(node['old_value'], depth)
@@ -52,5 +52,5 @@ def render_stylish(diff_tree, depth=1):
             lines.append(f"{prefix_indent}+ {key}: {new_val}")
 
     result = "\n".join(lines)
-    closing_indent = "    " * ((depth - 1) * 4)
+    closing_indent = " " * ((depth - 1) * 4)
     return f"{{\n{result}\n{closing_indent}}}"
