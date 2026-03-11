@@ -5,6 +5,7 @@ from gendiff.formatters import get_formatter
 def build_diff(data1, data2):
     keys = sorted(set(data1.keys()) | set(data2.keys()))
     diff = []
+
     for key in keys:
         val1 = data1.get(key)
         val2 = data2.get(key)
@@ -19,7 +20,8 @@ def build_diff(data1, data2):
             diff.append({
                 'key': key,
                 'type': 'nested',
-                'children': build_diff(val1, val2)})
+                'children': build_diff(val1, val2)
+            })
 
         elif val1 == val2:
             diff.append({'key': key, 'type': 'unchanged', 'value': val1})
