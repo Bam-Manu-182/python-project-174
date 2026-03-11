@@ -31,7 +31,7 @@ def render_stylish(diff_tree, depth=1):
 
         if node_type == 'nested':
             val = render_stylish(node['children'], depth + 1)
-            lines.append(f"{indent}    {key}: {val}")
+            lines.append(f"{indent}{key}: {val}")
 
         elif node_type == 'added':
             val = stringify(node['value'], depth)
