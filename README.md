@@ -3,7 +3,7 @@
 
 
 
-Project. Difference Calc
+Project = Difference Calc
 
 Badge: GitHub CI
 [![Python CI](https://github.com/Bam-Manu-182/python-project-174/actions/workflows/python-test.yml/badge.svg)](https://github.com/Bam-Manu-182/python-project-174/actions/workflows/python-test.yml)
