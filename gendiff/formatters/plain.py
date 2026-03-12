@@ -9,7 +9,7 @@ def to_str(value):
         return "null"
 
     if isinstance(value, str):
-        return f"'{value}'" # Comillas simples obligatorias para strings
+        return f"'{value}'"
 
     return str(value)
 
@@ -23,11 +23,13 @@ def render_plain(diff_tree, path=""):
         property_name = f"{path}{key}"
 
         if node_type == 'nested':
-            lines.append(render_plain(node.get('children'), f"{property_name}."))
+            lines.append(render_plain(node.get('children'),
+                                      f"{property_name}."))
 
         elif node_type == 'added':
             val = to_str(node.get('value'))
-            lines.append(f"Property '{property_name}' was added with value: {val}")
+            lines.append(
+                f"Property '{property_name}' was added with value: {val}")
 
         elif node_type == 'removed':
             lines.append(f"Property '{property_name}' was removed")
@@ -35,6 +37,7 @@ def render_plain(diff_tree, path=""):
         elif node_type == 'changed':
             v1 = to_str(node.get('old_value'))
             v2 = to_str(node.get('new_value'))
-            lines.append(f"Property '{property_name}' was updated. From {v1} to {v2}")
+            lines.append(
+                f"Property '{property_name}' was updated. From {v1} to {v2}")
 
     return "\n".join(lines)
